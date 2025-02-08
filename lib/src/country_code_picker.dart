@@ -1,5 +1,5 @@
 import 'package:deep_country_code_picker/src/constants.dart';
-import 'package:deep_country_code_picker/src/contry.dart';
+import 'package:deep_country_code_picker/src/country.dart';
 import 'package:flutter/material.dart';
 
 class CountryCodePicker extends StatefulWidget {
