@@ -1,39 +1,36 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+#### What is DeepCountryCodePicker?
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+It’s a Flutter package which can be used to pick country codes, it requires a minimal amount of code to customize menu items and selected item.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Can be customize the selected and listed items.
 
-## Getting started
+## Installing
+Add DeepCountryCodePicker to your pubspec.yaml file:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+dependencies:
+  deep_country_code_picker:
+```
+Import DeepRoute in files that it will be used:
+```dart
+import 'package:deep_country_code_picker/deep_country_code_picker.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+For sample code look in `/example` folder.
+
+Step 1: Add "DeepMaterialApp" before your MaterialApp, use DeepMaterialApp instead of MaterialApp
 
 ```dart
-const like = 'sample';
+CountryCodePicker(
+  selectedItemBuilder: (context, item) => Text(item.flag),
+  menuItemBuilder: (context, item) => Text(item.name),
+)
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This package is in its early development stage
