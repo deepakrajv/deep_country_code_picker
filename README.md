@@ -5,6 +5,7 @@ It’s a Flutter package which can be used to pick country codes, it requires a 
 ## Features
 
 Can be customize the selected and listed items.
+
 <img src="https://github.com/deepakrajv/deep_country_code_picker/blob/main/screenshots/deep_country_code_picker.gif" width="240"/>
 
 ## Installing
