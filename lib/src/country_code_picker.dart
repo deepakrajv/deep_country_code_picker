@@ -58,6 +58,12 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _onInit(selectedCountry);
+  }
+
+  @override
   void didUpdateWidget(CountryCodePicker oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.initialSelection != widget.initialSelection) {
