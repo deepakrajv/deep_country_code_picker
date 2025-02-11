@@ -6,6 +6,19 @@ class CountryCodePicker extends StatefulWidget {
   static List<Country> countries =
       countryCodes.map((json) => Country.fromJson(json)).toList();
 
+  static Country? getCountry(String name) {
+    final country = countries.firstWhere(
+      (element) => (element.countryCode.toUpperCase() == name ||
+          (element.dialCode == name) ||
+          (element.name.toUpperCase() == name.toUpperCase())),
+      orElse: () => Country(),
+    );
+    if (country.countryCode.isEmpty) {
+      return null;
+    }
+    return country;
+  }
+
   const CountryCodePicker({
     super.key,
     this.initialSelection,
@@ -43,14 +56,8 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
   @override
   void initState() {
     if (widget.initialSelection != null) {
-      selectedCountry = elements.firstWhere(
-        (element) =>
-            (element.countryCode.toUpperCase() == widget.initialSelection ||
-                (element.dialCode == widget.initialSelection) ||
-                (element.name.toUpperCase() ==
-                    widget.initialSelection!.toUpperCase())),
-        orElse: () => elements.first,
-      );
+      final country = CountryCodePicker.getCountry(widget.initialSelection!);
+      selectedCountry = country ?? elements.first;
     } else {
       selectedCountry = elements.first;
     }
@@ -68,14 +75,8 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.initialSelection != widget.initialSelection) {
       if (widget.initialSelection != null) {
-        selectedCountry = elements.firstWhere(
-            (criteria) =>
-                (criteria.countryCode.toUpperCase() ==
-                    widget.initialSelection!.toUpperCase()) ||
-                (criteria.dialCode == widget.initialSelection) ||
-                (criteria.name.toUpperCase() ==
-                    widget.initialSelection!.toUpperCase()),
-            orElse: () => elements.first);
+        final country = CountryCodePicker.getCountry(widget.initialSelection!);
+        selectedCountry = country ?? elements.first;
       } else {
         selectedCountry = elements.first;
       }
