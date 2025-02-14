@@ -15,7 +15,7 @@ Add DeepCountryCodePicker to your pubspec.yaml file:
 dependencies:
   deep_country_code_picker:
 ```
-Import DeepRoute in files that it will be used:
+Import `CountryCodePicker` in files that it will be used:
 ```dart
 import 'package:deep_country_code_picker/deep_country_code_picker.dart';
 ```
@@ -24,14 +24,14 @@ import 'package:deep_country_code_picker/deep_country_code_picker.dart';
 
 For sample code look in `/example` folder.
 
-Step 1: Add "DeepMaterialApp" before your MaterialApp, use DeepMaterialApp instead of MaterialApp
-
 ```dart
 CountryCodePicker(
   selectedItemBuilder: (context, item) => Text(item.flag),
   menuItemBuilder: (context, item) => Text(item.name),
 )
 ```
+Pass `null` in `selectedItemBuilder` and `selectedItemBuilder` to get default style.
+
 
 ## Additional information
 
