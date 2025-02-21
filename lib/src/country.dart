@@ -5,6 +5,8 @@ class Country {
 
   final String countryCode;
 
+  final String example;
+
   String get flag {
     final int firstLetter = countryCode.codeUnitAt(0) - 0x41 + 0x1F1E6;
     final int secondLetter = countryCode.codeUnitAt(1) - 0x41 + 0x1F1E6;
@@ -15,6 +17,7 @@ class Country {
     this.name = '',
     this.countryCode = '',
     this.dialCode = '',
+    this.example = '',
   });
 
   @override
@@ -25,6 +28,7 @@ class Country {
       name: json['name'] ?? '',
       countryCode: json['iso2_cc'] ?? '',
       dialCode: json['dial_code'] ?? '',
+      example: json['example'] ?? '',
     );
   }
 

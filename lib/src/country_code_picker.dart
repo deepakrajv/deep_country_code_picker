@@ -19,6 +19,27 @@ class CountryCodePicker extends StatefulWidget {
     return country;
   }
 
+  static bool validateMobile(String phoneNumber) {
+    phoneNumber = phoneNumber.replaceAll(' ', '');
+    phoneNumber = phoneNumber.replaceAll('-', '');
+    List<Country> similarCountries = countries
+        .where(
+          (e) => phoneNumber.startsWith(e.dialCode),
+        )
+        .toList();
+    for (Country country in similarCountries) {
+      final pattern = r'^\' +
+          country.dialCode +
+          r'\d{' +
+          country.example.length.toString() +
+          r'}$';
+      if (RegExp(pattern).hasMatch(phoneNumber)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   const CountryCodePicker({
     super.key,
     this.initialSelection,

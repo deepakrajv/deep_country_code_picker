@@ -32,6 +32,12 @@ CountryCodePicker(
 ```
 Pass `null` in `selectedItemBuilder` and `selectedItemBuilder` to get default style.
 
+### Validate Phone Numbers
+
+```dart
+final bool validation = CountryCodePicker.validateMobile(phoneNumber);
+```
+Using this method we can validate international phone number
 
 ## Additional information
 
